@@ -4,6 +4,7 @@ import styles from "@/styles/Home.module.css";
 import { InView } from "react-intersection-observer";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -79,13 +80,14 @@ export default function Home() {
         >
           TOUR
         </div>
-        <div
+        <a
+          href="https://MolotovMx.lnk.to/TodoMePica"
           className={styles.link}
-          ref={musicRef}
-          onClick={() => goToSection("musica")}
+          target="_blank"
+          rel="noreferrer"
         >
           MÚSICA
-        </div>
+        </a>
         <div
           className={styles.link}
           ref={contactRef}
@@ -685,7 +687,7 @@ export default function Home() {
             </div>
           </section>
         </InView>
-        <InView onChange={setMusicInView} threshold={0.3}>
+        {/* <InView onChange={setMusicInView} threshold={0.3}>
           <section className={styles.music} id="musica">
             <div className="container">
               <motion.div
@@ -853,7 +855,7 @@ export default function Home() {
               </motion.div>
             </div>
           </section>
-        </InView>
+        </InView> */}
         <InView onChange={setContactInView} threshold={0.2}>
           <section className={styles.contact} id="contacto">
             <div className="container">
