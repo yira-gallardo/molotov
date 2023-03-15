@@ -8,6 +8,7 @@
   align-items: center;
   color: white;
   z-index: 999;
+  background-image: linear-gradient(black, black, rgba(0, 0, 0, 0));
 }
 .navDesktop .link {
   display: block;
@@ -79,7 +80,7 @@
 .socials {
   position: fixed;
   width: 100%;
-  bottom: 0;
+  top: 10px;
   z-index: 999;
   display: flex;
   justify-content: flex-end;
@@ -109,7 +110,8 @@
   align-items: center;
 }
 .header .logo {
-  width: 50%;
+  width: 70%;
+  margin: auto;
 }
 .header .logo .logoImg {
   width: 100%;
@@ -143,7 +145,8 @@
   z-index: 2;
 }
 .bio .image {
-  width: 300px;
+  width: 200px;
+  margin: auto;
 }
 .bio .image .img {
   width: 100%;
@@ -162,6 +165,27 @@
   margin: 0;
   list-style: none;
   font-size: 2em;
+}
+.bio .text {
+  width: 80%;
+  font-size: 1.2em;
+  margin: 10px auto;
+}
+.bio .members {
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+}
+.bio .member {
+  font-size: 2em;
+}
+.bio .member .photo {
+  width: 200px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 .shows {
@@ -213,6 +237,17 @@
 .contact a:hover {
   transition-duration: 0.2s;
   color: #ed2f24;
+}
+
+.header .logo svg {
+  fill: white;
+  width: 100%;
+  transition-duration: 0.2s;
+}
+.header .logo:hover svg {
+  fill: #ed2f24;
+  width: 100%;
+  transition-duration: 0.2s;
 }
 
 @media only screen and (max-width: 1000px) {
