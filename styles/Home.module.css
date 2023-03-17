@@ -12,8 +12,8 @@
 }
 .navDesktop .link {
   display: block;
-  padding: 0.2em 0.8em;
-  font-size: 3.5em;
+  padding: 0.4em 0.8em;
+  font-size: 2.5em;
   transition-duration: 0.2s;
   cursor: pointer;
 }
@@ -25,7 +25,6 @@
   margin-top: 30px;
   color: #ed2f24;
 }
-
 .navMobile {
   display: none;
   position: fixed;
@@ -145,7 +144,7 @@
   z-index: 2;
 }
 .bio .image {
-  width: 200px;
+  width: 250px;
   margin: auto;
 }
 .bio .image .img {
@@ -168,7 +167,7 @@
 }
 .bio .text {
   width: 80%;
-  font-size: 1.2em;
+  font-size: 1.6em;
   margin: 10px auto;
 }
 .bio .members {
@@ -224,10 +223,21 @@
   column-gap: 20px;
   row-gap: 20px;
 }
+.tienda .title h3 {
+  font-size: 2em;
+  text-align: left;
+}
+.tienda {
+  background-color: black;
+  color: white;
+  padding: 5em 0;
+  font-size: 1.5em;
+  text-align: center;
+}
 
 .contact {
   text-align: center;
-  padding: 100px 0;
+  padding: 400px 0;
   background-color: black;
 }
 .contact a {

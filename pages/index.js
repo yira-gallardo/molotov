@@ -13,40 +13,54 @@ export default function Home() {
   const [showsInView, setShowsInView] = useState(false);
   const [musicInView, setMusicInView] = useState(false);
   const [contactInView, setContactInView] = useState(false);
+  const [tiendaInView, setTiendaInView] = useState(false);
   const bioRef = useRef();
   const showsRef = useRef();
   const musicRef = useRef();
   const contactRef = useRef();
+  const tiendaRef = useRef();
 
   if (topInView) {
     bioRef?.current?.classList.remove(styles.active);
     showsRef?.current?.classList.remove(styles.active);
     musicRef?.current?.classList.remove(styles.active);
     contactRef?.current?.classList.remove(styles.active);
+    tiendaRef?.current?.classList.remove(styles.active);
   }
   if (bioInView) {
     bioRef?.current?.classList.add(styles.active);
     showsRef?.current?.classList.remove(styles.active);
     musicRef?.current?.classList.remove(styles.active);
     contactRef?.current?.classList.remove(styles.active);
+    tiendaRef?.current?.classList.remove(styles.active);
   }
   if (showsInView) {
     bioRef?.current?.classList.remove(styles.active);
     showsRef?.current?.classList.add(styles.active);
     musicRef?.current?.classList.remove(styles.active);
     contactRef?.current?.classList.remove(styles.active);
+    tiendaRef?.current?.classList.remove(styles.active);
   }
   if (musicInView) {
     bioRef?.current?.classList.remove(styles.active);
     showsRef?.current?.classList.remove(styles.active);
     musicRef?.current?.classList.add(styles.active);
     contactRef?.current?.classList.remove(styles.active);
+    tiendaRef?.current?.classList.remove(styles.active);
   }
   if (contactInView) {
     bioRef?.current?.classList.remove(styles.active);
     showsRef?.current?.classList.remove(styles.active);
     musicRef?.current?.classList.remove(styles.active);
     contactRef?.current?.classList.add(styles.active);
+    tiendaRef?.current?.classList.remove(styles.active);
+  }
+  if (tiendaInView) {
+    bioRef?.current?.classList.remove(styles.active);
+    showsRef?.current?.classList.remove(styles.active);
+    musicRef?.current?.classList.remove(styles.active);
+    contactRef?.current?.classList.remove(styles.active);
+    tiendaRef?.current?.classList.add(styles.active);
   }
 
   const goToSection = (id) => {
@@ -88,6 +102,13 @@ export default function Home() {
         >
           MÚSICA
         </a>
+        <div
+          className={styles.link}
+          ref={tiendaRef}
+          onClick={() => goToSection("tienda")}
+        >
+          TIENDA
+        </div>
         <div
           className={styles.link}
           ref={contactRef}
@@ -163,8 +184,8 @@ export default function Home() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="2em"
-              height="2em"
+              width="1.5em"
+              height="1.5em"
               fill="currentColor"
               viewBox="0 0 16 16"
             >
@@ -180,8 +201,8 @@ export default function Home() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="2em"
-              height="2em"
+              width="1.5em"
+              height="1.5em"
               fill="currentColor"
               viewBox="0 0 16 16"
             >
@@ -197,8 +218,8 @@ export default function Home() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="2em"
-              height="2em"
+              width="1.5em"
+              height="1.5em"
               fill="currentColor"
               viewBox="0 0 16 16"
             >
@@ -214,8 +235,8 @@ export default function Home() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="2em"
-              height="2em"
+              width="1.5em"
+              height="1.5em"
               fill="currentColor"
               viewBox="0 0 16 16"
             >
@@ -533,32 +554,6 @@ export default function Home() {
                     height={468}
                   />
                 </div>
-                <div className={styles.text}>
-                  <p>
-                    Con más de 25 años de trayectoria, miles de kilómetros
-                    recorridos y cientos de show encima, molotov es una de las
-                    bandas mas irónicas del rock en español. originarios de la
-                    ciudad de méxico, y desde su disco debut “¿dónde jugarán las
-                    niñas?” han retratado su entorno a través de letras
-                    provocadoras en canciones como “Gimme the Power” “Frijolero”
-                    y “Voto Latino” que han sido descritas como dardos
-                    envenenados dirigidos directamente a nuestros gobernantes,
-                    ademas de no dejar a un lado el humor satírico en temas como
-                    “Chinga tu Madre” “Here We Kum” y “Más Vale Cholo” que han
-                    resonado en millones de jóvenes por todo el mundo, su estilo
-                    único, satírico, alternativo, poderoso y desafiante marco
-                    una era en America Latina. sus presentaciones en vivo son un
-                    explosivo cocktail molotov que les ha dado el titulo de
-                    &quot;la banda más poderosa de México&quot;.
-                  </p>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-              >
                 <div className={styles.members}>
                   <div className={styles.member}>
                     <a
@@ -612,6 +607,25 @@ export default function Home() {
                       <div className={styles.name}>Paco</div>
                     </a>
                   </div>
+                </div>
+                <div className={styles.text}>
+                  <p>
+                    Con más de 25 años de trayectoria, miles de kilómetros
+                    recorridos y cientos de show encima, molotov es una de las
+                    bandas mas irónicas del rock en español. originarios de la
+                    ciudad de méxico, y desde su disco debut “¿dónde jugarán las
+                    niñas?” han retratado su entorno a través de letras
+                    provocadoras en canciones como “Gimme the Power” “Frijolero”
+                    y “Voto Latino” que han sido descritas como dardos
+                    envenenados dirigidos directamente a nuestros gobernantes,
+                    ademas de no dejar a un lado el humor satírico en temas como
+                    “Chinga tu Madre” “Here We Kum” y “Más Vale Cholo” que han
+                    resonado en millones de jóvenes por todo el mundo, su estilo
+                    único, satírico, alternativo, poderoso y desafiante marco
+                    una era en America Latina. sus presentaciones en vivo son un
+                    explosivo cocktail molotov que les ha dado el titulo de
+                    &quot;la banda más poderosa de México&quot;.
+                  </p>
                 </div>
               </motion.div>
             </div>
@@ -856,6 +870,16 @@ export default function Home() {
             </div>
           </section>
         </InView> */}
+        <InView onChange={setTiendaInView}>
+          <section className={styles.tienda} id="tienda">
+            <div className="container">
+              <div className={styles.title}>
+                <h3>TIENDA</h3>
+              </div>
+              <div className={styles.tienda}>PRÓXIMAMENTE</div>
+            </div>
+          </section>
+        </InView>
         <InView onChange={setContactInView} threshold={0.2}>
           <section className={styles.contact} id="contacto">
             <div className="container">
