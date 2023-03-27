@@ -6,7 +6,6 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import LISTA_DE_SHOWS from "@/constants/shows.json";
 import { Show } from "@/components/Show/Show";
-import Link from "next/link";
 
 export default function Home() {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -112,20 +111,7 @@ export default function Home() {
         >
           TIENDA
         </div>
-        <div
-          className={styles.link}
-          ref={contactRef}
-          onClick={() => goToSection("contacto")}
-        >
-          CONTACTO
-        </div>
-        <div
-          className={styles.link}
-          ref={contactRef}
-          onClick={() => goToSection("contacto")}
-        >
-          NEWS LETTER
-        </div>
+        <div className={styles.link}>NEWSLETTER</div>
       </nav>
       <nav className={styles.navMobile}>
         <div className={styles.burger} onClick={() => setIsMenuActive(true)}>
@@ -696,7 +682,7 @@ export default function Home() {
             </div>
           </section>
         </InView>
-        <InView onChange={setMusicInView} threshold={0.3}>
+        <InView onChange={setMusicInView} threshold={0.8}>
           <section className={styles.music} id="music">
             <div className="container">
               <a
@@ -704,16 +690,18 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <div className={styles.music}>MÚSICA</div>
+                <div className={styles.title}>
+                  <h2>MÚSICA</h2>
+                </div>
               </a>
             </div>
           </section>
         </InView>
-        <InView onChange={setTiendaInView}>
+        <InView onChange={setTiendaInView} threshold={0.8}>
           <section className={styles.tienda} id="tienda">
             <div className="container">
               <div className={styles.title}>
-                <h3>TIENDA</h3>
+                <h2>TIENDA</h2>
               </div>
               <div className={styles.tienda}>PRÓXIMAMENTE</div>
             </div>
