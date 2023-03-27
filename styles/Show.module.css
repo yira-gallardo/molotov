@@ -1,0 +1,35 @@
+.shows {
+  padding: 100px 0;
+  min-height: 100vh;
+  background-color: black;
+}
+.showsItem {
+  display: flex;
+  border-bottom: 2px solid white;
+  padding: 10px 0;
+  font-size: 2em;
+  color: white;
+}
+.showsItem .left {
+  width: 25%;
+}
+.showsItem .center {
+  width: 50%;
+}
+.showsItem .right {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.showsItem .button {
+  background-color: white;
+  font-size: 12px;
+  padding: 10px 20px;
+  margin: 0 10px;
+}
+.showsItem .button a {
+  font-size: 1.5em;
+  color: black;
+}
