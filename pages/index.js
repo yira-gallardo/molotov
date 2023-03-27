@@ -4,6 +4,8 @@ import styles from "@/styles/Home.module.css";
 import { InView } from "react-intersection-observer";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import LISTA_DE_SHOWS from "@/constants/shows.json";
+import { Show } from "@/components/Show/Show";
 import Link from "next/link";
 
 export default function Home() {
@@ -98,6 +100,7 @@ export default function Home() {
           href="https://MolotovMx.lnk.to/TodoMePica"
           className={styles.link}
           target="_blank"
+          ref={musicRef}
           rel="noreferrer"
         >
           MÚSICA
@@ -115,6 +118,13 @@ export default function Home() {
           onClick={() => goToSection("contacto")}
         >
           CONTACTO
+        </div>
+        <div
+          className={styles.link}
+          ref={contactRef}
+          onClick={() => goToSection("contacto")}
+        >
+          NEWS LETTER
         </div>
       </nav>
       <nav className={styles.navMobile}>
@@ -557,53 +567,73 @@ export default function Home() {
                 <div className={styles.members}>
                   <div className={styles.member}>
                     <a
-                      href="https://www.instagram.com"
+                      href=" https://www.instagram.com/titof/"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <div
-                        className={styles.photo}
-                        style={{ backgroundImage: "url(img/member-1.png)" }}
-                      />
+                      <div className={styles.photo}>
+                        <Image
+                          src="/img/member-1.jpg"
+                          alt="Molotov"
+                          className={styles.memberImg}
+                          width={1080}
+                          height={1080}
+                        />
+                      </div>
                       <div className={styles.name}>Tito</div>
                     </a>
                   </div>
                   <div className={styles.member}>
                     <a
-                      href="https://www.instagram.com"
+                      href="https://www.instagram.com/saquemate/"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <div
-                        className={styles.photo}
-                        style={{ backgroundImage: "url(img/member-1.png)" }}
-                      />
+                      <div className={styles.photo}>
+                        <Image
+                          src="/img/member-2.jpg"
+                          alt="Molotov"
+                          className={styles.memberImg}
+                          width={1080}
+                          height={1080}
+                        />
+                      </div>
                       <div className={styles.name}>Miky</div>
                     </a>
                   </div>
                   <div className={styles.member}>
                     <a
-                      href="https://www.instagram.com"
+                      href="https://www.instagram.com/ameri_naco/"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <div
-                        className={styles.photo}
-                        style={{ backgroundImage: "url(img/member-1.png)" }}
-                      />
+                      <div className={styles.photo}>
+                        <Image
+                          src="/img/member-3.jpg"
+                          alt="Molotov"
+                          className={styles.memberImg}
+                          width={1080}
+                          height={1080}
+                        />
+                      </div>
                       <div className={styles.name}>Randy</div>
                     </a>
                   </div>
                   <div className={styles.member}>
                     <a
-                      href="https://www.instagram.com"
+                      href=" https://www.instagram.com/pacoayala/"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <div
-                        className={styles.photo}
-                        style={{ backgroundImage: "url(img/member-1.png)" }}
-                      />
+                      <div className={styles.photo}>
+                        <Image
+                          src="/img/member-4.jpg"
+                          alt="Molotov"
+                          className={styles.memberImg}
+                          width={1080}
+                          height={1080}
+                        />
+                      </div>
                       <div className={styles.name}>Paco</div>
                     </a>
                   </div>
@@ -651,225 +681,34 @@ export default function Home() {
                 transition={{ duration: 0.7 }}
               >
                 <div className={styles.showsBox}>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 1</div>
-                    <div className={styles.center}>CDMX</div>
-                    <div className={styles.right}>FORO SOL</div>
-                  </div>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 3</div>
-                    <div className={styles.center}>MONTERREY</div>
-                    <div className={styles.right}>PARQUE BICENTENARIO</div>
-                  </div>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 7</div>
-                    <div className={styles.center}>GUADALAJARA</div>
-                    <div className={styles.right}>VIVE LATINO</div>
-                  </div>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 1</div>
-                    <div className={styles.center}>CDMX</div>
-                    <div className={styles.right}>FORO SOL</div>
-                  </div>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 3</div>
-                    <div className={styles.center}>MONTERREY</div>
-                    <div className={styles.right}>PARQUE BICENTENARIO</div>
-                  </div>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 7</div>
-                    <div className={styles.center}>GUADALAJARA</div>
-                    <div className={styles.right}>VIVE LATINO</div>
-                  </div>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 1</div>
-                    <div className={styles.center}>CDMX</div>
-                    <div className={styles.right}>FORO SOL</div>
-                  </div>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 3</div>
-                    <div className={styles.center}>MONTERREY</div>
-                    <div className={styles.right}>PARQUE BICENTENARIO</div>
-                  </div>
-                  <div className={styles.showsItem}>
-                    <div className={styles.left}>AGOSTO 7</div>
-                    <div className={styles.center}>GUADALAJARA</div>
-                    <div className={styles.right}>VIVE LATINO</div>
-                  </div>
+                  {LISTA_DE_SHOWS.map((show) => (
+                    <Show
+                      key={show.id}
+                      date={show.date}
+                      venue={show.venue}
+                      city={show.city}
+                      tickets={show.tickets}
+                      vip={show.vip}
+                    />
+                  ))}
                 </div>
               </motion.div>
             </div>
           </section>
         </InView>
-        {/* <InView onChange={setMusicInView} threshold={0.3}>
-          <section className={styles.music} id="musica">
+        <InView onChange={setMusicInView} threshold={0.3}>
+          <section className={styles.music} id="music">
             <div className="container">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
+              <a
+                href="https://molotovmx.lnk.to/TodoMePica"
+                target="_blank"
+                rel="noreferrer"
               >
-                <div className={styles.title}>
-                  <h2>MÚSICA</h2>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-              >
-                <div className={styles.players}>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/1sRsYVfxx38YVV8CtTKi7w?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/5ceBnTwI1hUewZEwYnTc7z?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/37GG1SrlqpDXmgVtOXM3Dx?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/5QCO0g9UY5H9pmyZGD8I2P?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/4GDDq1VxRrtsQlwTP7j1UX?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/7vPZTR6HsfZt6diIrdWILI?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/12ED49CzOuEydEFVUytEvm?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/54AqGg9MsSfbD2rjXq5FUn?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/2AbyDhzuhpMNKEm8johQft?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/2Kd0lXsX8jlXwnoRrAnRiQ?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/6Ctz4L7IcyM6ClaRkxnCwY?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                  <div className={styles.player}>
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/album/7h9NpO38NZFD8vcEHw4lkZ?utm_source=generator&theme=0"
-                      width="100%"
-                      height="352"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                </div>
-              </motion.div>
+                <div className={styles.music}>MÚSICA</div>
+              </a>
             </div>
           </section>
-        </InView> */}
+        </InView>
         <InView onChange={setTiendaInView}>
           <section className={styles.tienda} id="tienda">
             <div className="container">

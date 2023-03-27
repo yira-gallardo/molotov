@@ -180,49 +180,39 @@
 }
 .bio .member .photo {
   width: 200px;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
+  overflow: hidden;
   border-radius: 50%;
-  margin-bottom: 10px;
 }
-
-.shows {
-  padding: 100px 0;
-  min-height: 100vh;
-  background-color: black;
+.bio .member .photo .memberImg {
+  width: 100%;
+  height: auto;
+  transition-duration: 0.2s;
 }
-.showsItem {
-  display: flex;
-  border-bottom: 2px solid white;
-  padding: 10px 0;
-  font-size: 2em;
-  color: white;
+.bio .member .name {
+  position: relative;
 }
-.showsItem .left {
-  width: 25%;
-}
-.showsItem .center {
-  width: 50%;
-}
-.showsItem .right {
-  width: 25%;
+.bio .member:hover .memberImg {
+  filter: grayscale(100%);
+  transition-duration: 0.2s;
 }
 
 .music {
   background-color: black;
-  padding: 100px 0;
-  background-image: url(/img/music.jpg);
-  background-position: center;
-  background-size: cover;
-  min-height: 100vh;
+  color: white;
+  padding: 5em 0;
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
 }
-.music .players {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 20px;
-  row-gap: 20px;
+.music :hover {
+  color: #ed2f24;
+  transition-duration: 0.2s;
 }
+.music .active {
+  margin-top: 30px;
+  color: #ed2f24;
+}
+
 .tienda .title h3 {
   font-size: 2em;
   text-align: left;

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "date": "AGOSTO 1",
+    "venue": "Auditorio Citibanamex",
+    "city": "Monterrey",
+    "tickets": "https://www.ticketmaster.com.mx/molotov-tickets/artist/795806?language=en-mx"
+  },
+  {
+    "id": 2,
+    "date": "AGOSTO 3",
+    "venue": "Auditorio Nacional",
+    "city": "CDMX",
+    "tickets": "https://www.ticketmaster.com.mx/molotov-tickets/artist/795806?language=en-mx"
+  }
+]
