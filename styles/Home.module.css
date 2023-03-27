@@ -72,7 +72,7 @@
   margin-bottom: 20px;
 }
 .title h2 {
-  font-size: 2em;
+  font-size: 60px;
   color: white;
 }
 
@@ -225,6 +225,12 @@
   text-align: center;
 }
 
+.shows {
+  padding: 100px 0;
+  min-height: 100vh;
+  background-color: black;
+}
+
 .contact {
   text-align: center;
   padding: 400px 0;
@@ -295,5 +301,23 @@
     grid-template-columns: 1fr;
     column-gap: 20px;
     row-gap: 20px;
+  }
+
+  .bio {
+    padding: 100px 20px;
+  }
+  .bio .members {
+    display: block;
+    justify-content: center;
+    column-gap: 10px;
+  }
+  .bio .member {
+    font-size: 2em;
+  }
+  .bio .member .photo {
+    width: 200px;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 50%;
   }
 }
