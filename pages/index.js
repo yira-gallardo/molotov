@@ -566,7 +566,7 @@ export default function Home() {
                           height={1080}
                         />
                       </div>
-                      <div className={styles.name}>Tito</div>
+                      <div className={styles.name}>Miky</div>
                     </a>
                   </div>
                   <div className={styles.member}>
@@ -584,7 +584,7 @@ export default function Home() {
                           height={1080}
                         />
                       </div>
-                      <div className={styles.name}>Miky</div>
+                      <div className={styles.name}>Tito</div>
                     </a>
                   </div>
                   <div className={styles.member}>
@@ -703,7 +703,7 @@ export default function Home() {
               <div className={styles.title}>
                 <h2>TIENDA</h2>
               </div>
-              <div className={styles.tienda}>PRÓXIMAMENTE</div>
+              <div className={styles.subtitle}>PRÓXIMAMENTE</div>
             </div>
           </section>
         </InView>
