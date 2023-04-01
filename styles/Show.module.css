@@ -9,10 +9,10 @@
   width: 25%;
 }
 .showsItem .center {
-  width: 50%;
+  width: 25%;
 }
 .showsItem .right {
-  width: 25%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
