@@ -2,9 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { InView } from "react-intersection-observer";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import LISTA_DE_SHOWS from "@/constants/shows.json";
 import { Show } from "@/components/Show/Show";
 
 export default function Home() {
@@ -20,6 +19,15 @@ export default function Home() {
   const musicRef = useRef();
   const contactRef = useRef();
   const tiendaRef = useRef();
+  const [shows, setShows] = useState([]);
+
+  useEffect(() => {
+    fetch("https://tmbc-api.vercel.app/api/molotov/tour")
+      .then((response) => response.json())
+      .then((data) => {
+        setShows(data);
+      });
+  }, []);
 
   if (topInView) {
     bioRef?.current?.classList.remove(styles.active);
@@ -667,16 +675,17 @@ export default function Home() {
                 transition={{ duration: 0.7 }}
               >
                 <div className={styles.showsBox}>
-                  {LISTA_DE_SHOWS.map((show) => (
-                    <Show
-                      key={show.id}
-                      date={show.date}
-                      venue={show.venue}
-                      city={show.city}
-                      tickets={show.tickets}
-                      vip={show.vip}
-                    />
-                  ))}
+                  {shows.length > 0 &&
+                    shows.map((show) => (
+                      <Show
+                        key={show.id}
+                        date={show.date}
+                        venue={show.venue}
+                        city={show.city}
+                        tickets={show.tickets}
+                        vip={show.vip}
+                      />
+                    ))}
                 </div>
               </motion.div>
             </div>
